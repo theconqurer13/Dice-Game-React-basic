@@ -5,11 +5,24 @@ import NumberSelector from './NumberSelector';
 const GamePlay = () => {
   return (
     <>
-        <TotalScore/>
-        <NumberSelector/>
+        <UpperPart>
+         <TotalScore/>
+         <NumberSelector/>
+        </UpperPart>
+       
     </>
   )
 }
 
 export default GamePlay;
+
+
+const UpperPart = styled.div`
+    
+    width: 100vw;
+    display: flex;
+    justify-content:space-between;
+
+
+`
 
