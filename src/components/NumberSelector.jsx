@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-const NumberSelector = ({selectedNumber,setSelectedNumber,setIsClicked}) => {
-    const arrNumber = [1,2,3,4,5,6];
+const NumberSelector = ({selectedNumber,setSelectedNumber,setIsClicked,arrNumber}) => {
+    
     
   return (
     <SelectNumberContainer>

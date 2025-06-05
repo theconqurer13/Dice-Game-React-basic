@@ -6,14 +6,17 @@ import RollDice from './RollDice';
 const GamePlay = () => {
   const [selectedNumber, setSelectedNumber] = React.useState(); 
   const [IsClicked,setIsClicked] = React.useState(false);
-
+  const [totalScore, setTotalScore] = React.useState(0);
+  const arrNumber = [1,2,3,4,5,6];
+  const [Reset,setReset] = React.useState(false);
+  console.log(IsClicked);
   return (
     <>
         <UpperPart>
-         <TotalScore/>
-         <NumberSelector selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber}/>
+         <TotalScore totalScore={totalScore} />
+         <NumberSelector selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} setIsClicked={setIsClicked} arrNumber={arrNumber}/>
         </UpperPart>
-        <RollDice selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} setIsClicked={setIsClicked} IsClicked={IsClicked} />
+        <RollDice selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} setIsClicked={setIsClicked} IsClicked={IsClicked} arrNumber = {arrNumber} setTotalScore={setTotalScore} totalScore={totalScore} />
        
     </>
   )

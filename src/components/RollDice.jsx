@@ -1,16 +1,39 @@
 import React from 'react'
 import styled from 'styled-components';
-const RollDice = ({selectedNumber,IsClicked}) => {
+const RollDice = ({selectedNumber,IsClicked,setReset}) => {
+    const [message, setMessage] = React.useState(false);
+    const [Address,setAddress] = React.useState('/src/images/dice_1.png');
   return (
     <DiceContainer>
         <div className='mainbox'>
-            <div className="dice">
-                <img src="/src/images/dice_1.png" alt="dice 1" />
+            <div className="dice" onClick={
+                () =>{
+                    if(IsClicked){
+                        var random = Math.floor(Math.random() * 6) + 1;
+                        if(random == 1){
+                            setAddress('/src/images/dice_1.png')
+                        }else if(random == 2){
+                            setAddress('/src/images/dice_2.png')
+                        }else if(random == 3){
+                            setAddress('/src/images/dice_3.png')
+                        }else if(random == 4){
+                            setAddress('/src/images/dice_4.png')
+                        }else if(random == 5){
+                            setAddress('/src/images/dice_5.png')
+                        }else {
+                            setAddress('/src/images/dice_6.png')
+                        }
+                    }else{
+                        setMessage(true);
+                    }
+                }
+            }>
+                <img src={Address} alt="dice img" />
             </div>
             
             
             <h4>Click on the Dice to Roll</h4>
-            <Button isReset = {true}>Reset Score</Button>
+            <Button isReset = {true} onClick={(props)=> props.setReset(true)}>Reset Score</Button>
             <Button isReset = {false}>Show Rules</Button>
         </div>
 
