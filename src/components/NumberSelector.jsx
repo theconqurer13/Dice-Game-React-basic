@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-const NumberSelector = ({selectedNumber,setSelectedNumber,setIsClicked,arrNumber}) => {
+const NumberSelector = ({selectedNumber,setSelectedNumber,setIsClicked,arrNumber,message,setMessage}) => {
     
     
   return (
-    <SelectNumberContainer>
-        {/* <p isCheck = ></p> */}
+    <SelectNumberContainer message = {message}>
+        <h4>You have not selected any number !!</h4>
         <div className="flex">
 
             {
@@ -17,6 +17,9 @@ const NumberSelector = ({selectedNumber,setSelectedNumber,setIsClicked,arrNumber
                         ()=>{
                             setSelectedNumber(value);
                             setIsClicked(true);
+                            if(message){
+                                setMessage(!message);
+                            }
                         }
                     }
                 >{value}</Box>
@@ -39,7 +42,7 @@ const SelectNumberContainer = styled.div`
     display:flex;
     flex-direction: column;
     align-items: end;
-    margin-top:50px;
+    margin-top:30px;
         margin-right:30px;
     .flex{
         display: flex;
@@ -50,6 +53,10 @@ const SelectNumberContainer = styled.div`
 
     }
 
+    h4{
+        color:red;
+        display:${(props)=> props.message ? 'block' : 'none'}
+    }
 
 
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
-const RollDice = ({selectedNumber,IsClicked,totalScore,settotalScore}) => {
-    const [message, setMessage] = React.useState(false);
+const RollDice = ({selectedNumber,IsClicked,totalScore,settotalScore,toShowrules,settoShowrules,setMessage}) => {
+    
     const [Address,setAddress] = React.useState('/src/images/dice_1.png');
     const [text,settext] = React.useState('Show Rules');
-    const [toShowrules,settoShowrules] = React.useState(false);
+    
   return (
     <DiceContainer>
         <div className='mainbox'>
@@ -76,6 +76,7 @@ const RollDice = ({selectedNumber,IsClicked,totalScore,settotalScore}) => {
                 
             }} >{text}</Button>
         </div>
+        
 
     </DiceContainer>
   )
@@ -104,7 +105,7 @@ const DiceContainer = styled.div`
     justify-content: center;
     display: flex;
     align-items: center;
-    padding-top:70px;
+    padding-top:50px;
 
     .mainbox{
         display: flex;

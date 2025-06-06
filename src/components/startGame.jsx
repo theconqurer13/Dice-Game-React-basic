@@ -1,6 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 const startGame = () => {
+
+    const navigate = useNavigate();
+    const handleClick = () =>{
+        navigate('/playGame');
+    };
+
   return (
     <Container>
         <div style={{}}>
@@ -12,7 +19,7 @@ const startGame = () => {
         alignItems:'end',
         justifyContent:'center',
         }}>
-            <Button>Play Now </Button>
+            <Button onClick={handleClick}>Play Now </Button>
             <h1 style={{
                 fontSize: 80,
             }}>
